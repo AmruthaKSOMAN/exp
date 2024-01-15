@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Expense{% endblock title %}</title>
+    
+</head>
+<body>
+    {%block content%}
+    <div>
+        <form action='Expense' method="POST">
+            {% csrf_token %}
+            <br>
+            <h3>&nbsp;&nbsp;Total Expense</h3>
+            <table border="2">
+                <tr>
+                    <td style="font-size: x-large;">&nbsp;&nbsp;&nbsp;Item</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td style="font-size: x-large;">Amount</td>
+                </tr>
+    
+                {% for j in ex %}
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;{{j.Item}}</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;{{j.Amount}}</td>  
+                </tr>
+                {% endfor %}    
+            </table>
+        </form>
+
+    </div>
+    {%endblock%}
+</body>
+</html>
+
+
+
+
+
